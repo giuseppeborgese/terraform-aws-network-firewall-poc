@@ -61,6 +61,8 @@ resource "aws_route_table" "private" {
 
 ################################# Subnets
 #
+data "aws_region" "current" {}
+
 
 # Public
 module "public_no_restriction" {
@@ -68,7 +70,7 @@ module "public_no_restriction" {
 
   vpc_id = aws_vpc.main.id
   subnet_cidr_block = var.cidr_pub_no_restriction
-  subnet_az = "eu-west-1a"
+  subnet_az = "${data.aws_region.current.name}a"
   subnet_name = "public no restriction"
   subnet_type = "Public no restriction"
   route_table_id = aws_route_table.public_no_restriction.id
@@ -79,7 +81,7 @@ module "nat_gw_only" {
 
   vpc_id = aws_vpc.main.id
   subnet_cidr_block = var.cidr_pub_nat_gw
-  subnet_az = "eu-west-1a"
+  subnet_az = "${data.aws_region.current.name}a"
   subnet_name = "Nat GW Public with restriction"
   subnet_type = "Public Restriction"
   route_table_id = aws_route_table.nat_gw_only.id
@@ -90,7 +92,7 @@ module "private" {
 
   vpc_id = aws_vpc.main.id
   subnet_cidr_block = var.cidr_private
-  subnet_az = "eu-west-1a"
+  subnet_az = "${data.aws_region.current.name}a"
   subnet_name = "private"
   subnet_type = "Private"
   route_table_id = aws_route_table.private.id
