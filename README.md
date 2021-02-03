@@ -1,7 +1,7 @@
 # terraform-aws-network-firewall-poc
 A POC for the AWS Network Firewall Service, full VPC with a Single AZ
 
-Full documentation and explanation soon on https://giuseppeborgese.medium.com/how-to-build-an-aws-network-firewall-environment-8a212cfb7ef3
+Full documentation and explanation on https://giuseppeborgese.medium.com/how-to-build-an-aws-network-firewall-environment-8a212cfb7ef3
 
 ![diagram](https://raw.githubusercontent.com/giuseppeborgese/terraform-aws-network-firewall-poc/master/diagram.png)
 
